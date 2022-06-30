@@ -50,7 +50,7 @@
 
 #ifndef PNPSOLVER_H
 #define PNPSOLVER_H
-
+#include <System.h>
 #include <opencv2/core/core.hpp>
 #include "MapPoint.h"
 #include "Frame.h"

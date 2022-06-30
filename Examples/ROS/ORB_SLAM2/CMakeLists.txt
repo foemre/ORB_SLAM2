@@ -30,7 +30,7 @@ endif()
 
 LIST(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/../../../cmake_modules)
 
-find_package(OpenCV 3.0 QUIET)
+find_package(OpenCV 4.0 QUIET)
 if(NOT OpenCV_FOUND)
    find_package(OpenCV 2.4.3 QUIET)
    if(NOT OpenCV_FOUND)
@@ -38,8 +38,8 @@ if(NOT OpenCV_FOUND)
    endif()
 endif()
 
-find_package(Eigen3 3.1.0 REQUIRED)
-find_package(Pangolin REQUIRED)
+find_package(Eigen3 3.1.0 REQUIRED NO_MODULE)
+find_package(Pangolin REQUIRED NO_MODULE)
 
 include_directories(
 ${PROJECT_SOURCE_DIR}
@@ -55,6 +55,7 @@ ${Pangolin_LIBRARIES}
 ${PROJECT_SOURCE_DIR}/../../../Thirdparty/DBoW2/lib/libDBoW2.so
 ${PROJECT_SOURCE_DIR}/../../../Thirdparty/g2o/lib/libg2o.so
 ${PROJECT_SOURCE_DIR}/../../../lib/libORB_SLAM2.so
+-lboost_system
 )
 
 # Node for monocular camera

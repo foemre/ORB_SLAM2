@@ -24,8 +24,8 @@ tar -xf ORBvoc.txt.tar.gz
 cd ..
 
 echo "Configuring and building ORB_SLAM2 ..."
-
+ncores=$(($(free -m | awk 'NR==2{print $4}') / 2048))
 mkdir build
 cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release
-make -j
+make -j$ncores
